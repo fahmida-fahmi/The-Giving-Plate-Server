@@ -16,18 +16,19 @@ const authRoute = require("./Router/authRouter");
 require("dotenv").config();
 
 app.use(express.static('public'))
+
 app.use(express.json());
 app.use(cors());
 
 // app.use(express.urlencoded({extended: true}))
 
-// app.use(cors(
-//   {
-//     origin: ["https://deploy-mern-lwhq.vercel.app"],
-//     methods: ["POST","GET"],
-//     credentials: true
-//   }
-// ))
+app.use(cors(
+  {
+    origin: ["https://deploy-mern-lwhq.vercel.app"],
+    methods: ["POST","GET"],
+    credentials: true
+  }
+))
 
 app.use('/jwt', jwtRouter)
 
